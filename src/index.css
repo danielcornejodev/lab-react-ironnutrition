@@ -5,9 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#food-card {
+  width: 450px;
+}
+
+img {
+  width: 150px;
+  height: 100px;
+}
+
+#form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+.ant-input {
+  width: 500px;
+  padding: 5px;
+}
+
