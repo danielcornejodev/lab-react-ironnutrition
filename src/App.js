@@ -8,6 +8,10 @@ import './App.css';
 function App() {
   const [food, setFood] = useState(foods);
 
+  function addToFoodList(newFood) {
+    setFood([...food, newFood])
+  };
+
   return (
     <>
       <div className="App">
@@ -18,7 +22,7 @@ function App() {
         })}
 
       </div>
-      <AddFoodForm />
+      <AddFoodForm addToFoodList={ addToFoodList } />
     </>
   );
 }

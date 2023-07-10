@@ -3,7 +3,7 @@ import { Card, Row, Col, Divider, Input, Button } from "antd";
 import { useState } from 'react';
 import FoodBox from './FoodBox';
 
-export default function AddFoodForm() {
+export default function AddFoodForm({ addToFoodList }) {
     const [foodList, setFoodList] = useState(() => []);
     const [formData, setFormData] = useState({
         name: '',
@@ -29,6 +29,8 @@ export default function AddFoodForm() {
         event.preventDefault();
     
         setFoodList([...foodList, formData]);
+
+        addToFoodList(formData);
     
         setFormData({
             name: '',
