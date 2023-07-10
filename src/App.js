@@ -3,6 +3,7 @@ import { Card, Row, Col, Divider, Input, Button } from "antd";
 import { useState } from 'react';
 import FoodBox from "./components/FoodBox";
 import AddFoodForm from './components/AddFoodForm';
+import Search from './components/Search';
 import './App.css';
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
 
   return (
     <>
+      <h1>Search</h1>
+      <Search />
+      <h1>Food List</h1>
       <div className="App">
         {food.map((element, i) => {
           return (
