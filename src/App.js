@@ -8,22 +8,34 @@ import './App.css';
 
 function App() {
   const [food, setFood] = useState(foods);
+  const [filteredFood, setFilteredFood] = useState({
+    query: '',
+    list: []
+  });
 
   function addToFoodList(newFood) {
     setFood([...food, newFood])
   };
 
+  function renderFilteredList(state) {
+    setFilteredFood(state);
+  }
+
+  console.log(filteredFood);
+
   return (
     <>
       <h1>Search</h1>
-      <Search />
+      <Search food={ food } renderFilteredList={ renderFilteredList }/>
       <h1>Food List</h1>
       <div className="App">
-        {food.map((element, i) => {
+        {(filteredFood.query === '' ? food.map((element, i) => {
           return (
-            <FoodBox food={ element } />
+            <FoodBox key={i} food={ element } />
           )
-        })}
+        }) : filteredFood.list.map((food, i) => {
+            return <FoodBox key={i} food={ food } />
+          }))}
 
       </div>
       <AddFoodForm addToFoodList={ addToFoodList } />

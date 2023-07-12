@@ -44,3 +44,13 @@ img {
 h1 {
   text-align: center;
 }
+
+#search-div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+}
+
+#search-input {
+  width: 75%;
+}
