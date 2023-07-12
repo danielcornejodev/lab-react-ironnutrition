@@ -17,11 +17,15 @@ function App() {
     setFood([...food, newFood])
   };
 
+  function updateFoodList(foodName) {
+    const updatedFood = food.filter((item) => item.name !== foodName);
+    setFood(updatedFood);
+  }
+
   function renderFilteredList(state) {
     setFilteredFood(state);
   }
 
-  console.log(filteredFood);
 
   return (
     <>
@@ -31,10 +35,10 @@ function App() {
       <div className="App">
         {(filteredFood.query === '' ? food.map((element, i) => {
           return (
-            <FoodBox key={i} food={ element } />
+            <FoodBox key={ i } food={ element } updateFoodList={ updateFoodList }/>
           )
         }) : filteredFood.list.map((food, i) => {
-            return <FoodBox key={i} food={ food } />
+            return <FoodBox key={ i } food={ food } />
           }))}
 
       </div>

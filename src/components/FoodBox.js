@@ -1,15 +1,17 @@
 import React from 'react'
 import { Card, Row, Col, Divider, Input, Button } from "antd";
 
-export default function FoodBox({ food, key }) {
+export default function FoodBox({ food, key, updateFoodList }) {
 
     const calcCalories = () => {
         let totalCal = food.servings * food.calories;
         return totalCal;
     }
 
-    const handleDelete = () => {
 
+
+    const handleDelete = (foodName) => {
+        updateFoodList(foodName);
     }
 
     return (
@@ -24,7 +26,7 @@ export default function FoodBox({ food, key }) {
                 <h2>Calories: {food.calories}</h2>
                 <h2>Servings: {food.servings}</h2>
                 <h1>Total Calories: {calcCalories()}</h1>
-                <Button type="primary" onClick={() => handleDelete(key)}>Delete</Button>
+                <Button type="primary" onClick={() => handleDelete(food.name)}>Delete</Button>
             </Card>
 
         </div>
